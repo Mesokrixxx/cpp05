@@ -16,6 +16,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other._name), _grade(othe
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this != &other) {
+		std::cout << "TO COMPLETE" << std::endl;
 		_grade = other._grade;
 	}
 	return *this;
