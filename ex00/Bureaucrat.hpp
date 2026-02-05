@@ -1,11 +1,16 @@
 #pragma once
 
 #include <string>
+#include <exception>
 
 class Bureaucrat {
 public:
-	std::exception GradeTooHighException;
-	std::exception GradeTooLowException;
+	class GradeTooHighException : public std::exception {
+		const char *what() const throw();
+	};
+	class GradeTooLowException : public std::exception {
+		const char *what() const throw();
+	};
 
 	Bureaucrat();
 	Bureaucrat(const std::string& name, int grade);

@@ -1,13 +1,21 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Grade too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Grade too low";
+}
+
 Bureaucrat::Bureaucrat(): _name("UnamedBureaucrat"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name) {
 	if (grade < 1) {
-		throw GradeTooHighException;
+		throw GradeTooHighException();
 	} else if (grade > 150) {
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	}
 	_grade = grade;
 }
@@ -28,14 +36,14 @@ int Bureaucrat::getGrade() const { return _grade; }
 
 void Bureaucrat::increaseGrade() {
 	if (_grade == 1)
-		throw GradeTooHighException;
+		throw GradeTooHighException();
 	else
 		_grade--;
 }
 
 void Bureaucrat::decreaseGrade() {
 	if (_grade == 150)
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	else
 		_grade++;
 }

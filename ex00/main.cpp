@@ -11,7 +11,7 @@ int main(void) {
 		b.increaseGrade();
 		std::cout << b << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Catched an exception" << std::endl;
+		std::cerr << "Catched an exception: " << e.what() << std::endl;
 	}
 
 	std::cout << "\n";
@@ -23,7 +23,7 @@ int main(void) {
 			b.increaseGrade();
 		}
 	} catch (std::exception& e) {
-		std::cerr << "Catched an exception" << std::endl;
+		std::cerr << "Catched an exception: " << e.what() << std::endl;
 	}
 	return 0;
 }
