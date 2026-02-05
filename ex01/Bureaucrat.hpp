@@ -2,7 +2,8 @@
 
 #include <string>
 #include <exception>
-#include <iostream>
+
+class Form;
 
 class Bureaucrat {
 public:
@@ -24,6 +25,7 @@ public:
 
 	void increaseGrade();
 	void decreaseGrade();
+	void signForm(Form& form) const;
 
 private:
 	const std::string _name;
